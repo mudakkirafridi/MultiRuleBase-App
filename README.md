@@ -1,6 +1,8 @@
 # multirulebase_app
 
 A new Flutter project.
+![Capture](https://github.com/mudakkirafridi/MultiRuleBase-App/assets/139226585/4064cd7a-2a9c-4e76-aa41-498a5c484278)
+![Capture2](https://github.com/mudakkirafridi/MultiRuleBase-App/assets/139226585/1634b194-3d9f-4e9d-adc1-737519b0684a)
 
 ## Getting Started
 
