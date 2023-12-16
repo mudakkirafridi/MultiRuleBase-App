@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:multirulebase_app/pages/home_screen.dart';
 import 'package:multirulebase_app/pages/login.dart';
+import 'package:multirulebase_app/pages/student_screen.dart';
+import 'package:multirulebase_app/pages/teacher_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,10 +23,16 @@ class _SplashScreenState extends State<SplashScreen> {
   isLogin() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     bool islogin = sp.getBool("islogin") ?? false;
-    if (islogin) {
+    String type = sp.getString("userType") ?? '';
+    if (islogin && type == 'teacher') {
       Timer(const Duration(seconds: 3), () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()));
+            MaterialPageRoute(builder: (context) => const TeacherScreen()));
+      });
+    } else if (islogin && type == 'student') {
+      Timer(const Duration(seconds: 3), () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const StudentScreen()));
       });
     } else {
       Timer(const Duration(seconds: 3), () {
@@ -43,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Center(
             child: Text(
-              'Multirule\n Base App',
+              'MultiruleBase \n App',
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.white,

@@ -10,10 +10,13 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
+  String valueChoose = '';
+  List valueItems = ['Teacher', 'Student', 'Principal'];
   final _key = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passController = TextEditingController();
+  final userTypeController = TextEditingController();
   String name = '';
   @override
   Widget build(BuildContext context) {
@@ -41,6 +44,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 TextFormField(
                   controller: nameController,
                   decoration: InputDecoration(
+                      suffixIcon: const Icon(Icons.person),
                       hintText: "Enter Name",
                       enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
@@ -69,6 +73,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 TextFormField(
                   controller: emailController,
                   decoration: InputDecoration(
+                      suffixIcon: const Icon(Icons.mail),
                       hintText: "Enter Email",
                       enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
@@ -92,6 +97,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 TextFormField(
                   controller: passController,
                   decoration: InputDecoration(
+                      suffixIcon: const Icon(Icons.lock),
                       hintText: "Enter Password",
                       enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
@@ -110,7 +116,36 @@ class _LogInScreenState extends State<LogInScreen> {
                   },
                 ),
                 const SizedBox(
-                  height: 70,
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: TextFormField(
+                    controller: userTypeController,
+                    decoration: InputDecoration(
+                        suffixIcon: const Icon(Icons.supervised_user_circle),
+                        hintText: "UserType E.G Admin",
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Colors.black,
+                            ),
+                            borderRadius: BorderRadius.circular(15)),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(25),
+                                bottomLeft: Radius.circular(25)))),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Enter Usertype";
+                      }
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 50,
                 ),
                 InkWell(
                   onTap: () async {
@@ -120,11 +155,13 @@ class _LogInScreenState extends State<LogInScreen> {
                       sp.setString("name", nameController.text.toString());
                       sp.setString("email", emailController.text.toString());
                       sp.setString("pass", passController.text.toString());
+                      sp.setString(
+                          "userType", userTypeController.text.toString());
                       sp.setBool("islogin", true);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => HomeScreen()));
                     }
                   },
                   child: Container(
