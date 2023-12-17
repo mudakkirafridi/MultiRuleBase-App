@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String myName = '', myEmail = '', myPass = '';
+  String myName = '', myEmail = '', myPass = '', myType = '';
   @override
   void initState() {
     super.initState();
@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     myName = sp.getString('email') ?? '';
     myEmail = sp.getString('email') ?? '';
     myPass = sp.getString('pass') ?? '';
+    myType = sp.getString('userType') ?? '';
     setState(() {});
   }
 
@@ -50,6 +51,10 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [const Text('Your Password'), Text(myPass)],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [const Text('UserType'), Text(myType)],
             ),
             const SizedBox(
               height: 30,

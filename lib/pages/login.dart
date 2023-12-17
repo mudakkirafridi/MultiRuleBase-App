@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:multirulebase_app/pages/student_screen.dart';
+import 'package:multirulebase_app/pages/teacher_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:multirulebase_app/pages/home_screen.dart';
 
@@ -158,10 +160,17 @@ class _LogInScreenState extends State<LogInScreen> {
                       sp.setString(
                           "userType", userTypeController.text.toString());
                       sp.setBool("islogin", true);
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => HomeScreen()));
+                      if (sp.getString('userType') == 'student') {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const StudentScreen()));
+                      } else if (sp.getString('userType') == 'teacher') {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const TeacherScreen()));
+                      }
                     }
                   },
                   child: Container(
