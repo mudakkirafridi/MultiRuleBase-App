@@ -3,6 +3,8 @@
 A new Flutter project.
 ![Capture](https://github.com/mudakkirafridi/MultiRuleBase-App/assets/139226585/4064cd7a-2a9c-4e76-aa41-498a5c484278)
 ![Capture2](https://github.com/mudakkirafridi/MultiRuleBase-App/assets/139226585/1634b194-3d9f-4e9d-adc1-737519b0684a)
+![Capture](https://github.com/mudakkirafridi/MultiRuleBase-App/assets/139226585/875430ef-7791-4a29-9593-64f80b77a981)
+![Capture1](https://github.com/mudakkirafridi/MultiRuleBase-App/assets/139226585/8dd96756-aa90-417f-9522-cfdc1d398fa9)
 
 ## Getting Started
 
